@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose, { mongo } from "mongoose";
 import cors from "cors";
+import UserRoute from "./routes/UserRoute";
 
 const app = express();
 
@@ -12,5 +13,6 @@ db.once("open", () => console.log("Database Connected..."));
 
 app.use(cors());
 app.use(express.json());
+app.use(UserRoute);
 
 app.listen(5000, () => console.log("Server up and running..."));
