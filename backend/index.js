@@ -1,12 +1,10 @@
 import express from "express";
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 import cors from "cors";
-import UserRoute from "./routes/UserRoute";
+import UserRoute from "./routes/UserRoute.js";
 
 const app = express();
-
 mongoose.connect("mongodb://localhost:27017/simple_crud");
-
 const db = mongoose.connection;
 db.on("error", (error) => console.log(error));
 db.once("open", () => console.log("Database Connected..."));
